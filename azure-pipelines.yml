@@ -24,7 +24,7 @@ steps:
 
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: '$(Build.BinariesDirectory)'
+    rootFolderOrFile: '$(Build.SourcesDirectory)'
     includeRootFolder: true
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
@@ -42,4 +42,4 @@ steps:
     azureSubscription: 'Microsoft Azure Internal Consumption(fbb69af7-f9a0-4e69-ba10-b4eb445e3963)'
     appType: 'webApp'
     WebAppName: 'nodewebapp1'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    packageForLinux: '$(Build.ArtifactStagingDirectory)/**/*.zip'
